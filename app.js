@@ -1,12 +1,9 @@
-require("./instantHello");
-var goodbye = require("./Talk/goodbye");
-var talk = require("./Talk"); //will look for a file talk.js, then folder talk with index.js
-var question = require("./Talk/question");
+var express = require('express'); //require dependencies
+var app = express(); //set reference to express dependency execution
 
-talk.intro();
-talk.hello("David");
+app.set('port', 3000); //set express application variable port to 3000
 
-var answer = question.ask("What is the meaning of life?");
-console.log(answer);
-
-goodbye();
+var server = app.listen(app.get('port'), function() { //callback function
+	var port = server.address().port;
+	console.log('Listening to Port ' + port);	
+}); //set listen to express variable, using get method
