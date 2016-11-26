@@ -2,20 +2,21 @@ var express = require('express'); //require dependencies
 var app = express(); //set reference to express dependency execution
 var path = require('path');
 
+var routes = require("./api/routes");
+
 app.set('port', 3000); //set express application variable port to 3000
 
+app.use(function(request, response, next) {
+	console.log(request.method, request.url);//method(post/get)
+	next(); //next pushes the request to the next statement
+});
+
+//define path __dirname is current directory, public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/json', function(request, response){ //hhtp method / get method
-	console.log("GET the json");
-	response.status(200).json( {"jsonData" : true} );//send json with 200 method
-});
-
-app.get('/file', function(request, response){ //hhtp method / get method
-	console.log("GET the file");
-	response.status(200).sendFile(path.join(__dirname, 'app.js'));
-	//sends a file, specify path current directory file name
-});
+//use routes
+//retrieve routes from routes folder
+app.use('/', routes);
 
 var server = app.listen(app.get('port'), function() { //callback function
 	var port = server.address().port;
