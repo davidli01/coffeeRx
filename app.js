@@ -2,7 +2,7 @@ var express = require('express'); //require dependencies
 var app = express(); //set reference to express dependency execution
 var path = require('path');
 
-var routes = require("./api/routes");
+var routes = require('./api/routes');
 
 app.set('port', 3000); //set express application variable port to 3000
 
