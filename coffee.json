@@ -1,0 +1,20 @@
+db.coffee.insert(
+[
+{
+	"name" : "coffee",
+	"price" : "$1.99"
+},
+{
+	"name" : "espresso",
+	"price" : "$1.00"
+},
+{
+	"name" : "latte",
+	"price" : "$2.99"
+},
+{
+	"name" : "nutella latte",
+	"price" : "$3.99"
+}
+]
+)
