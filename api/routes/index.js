@@ -5,11 +5,15 @@ var controller = require("../controllers/coffee.js");
 
 router
 	.route('/coffee') //set the route
-	.get(controller.coffeeGetAll); //get controller and its function
+	.get(controller.coffeeGetAll); //assign controller and its function
 
 router
 	.route('/coffee/:coffeeId') //set the route
-	.get(controller.coffeeGetOne); //get controller and its function
+	.get(controller.coffeeGetOne); //assign controller and its function
+
+router
+	.route('/coffee/new') //set the route
+	.post(controller.coffeeAddOne); //assign controller and its function
 
 module.exports = router;
 

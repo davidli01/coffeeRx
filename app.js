@@ -1,6 +1,7 @@
 var express = require('express'); //require dependencies
 var app = express(); //set reference to express dependency execution
 var path = require('path');
+var bodyParser = require('body-parser');
 
 var routes = require('./api/routes');
 
@@ -13,6 +14,11 @@ app.use(function(request, response, next) {
 
 //define path __dirname is current directory, public folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+//order of bodyparser is important
+//bodyparser must run before any routes do, but can run after static files
+//extended option to false, strings and array datatypes
+app.use(bodyParser.urlencoded( {extended : false} ));
 
 //use routes
 //retrieve routes from routes folder
