@@ -1,0 +1,28 @@
+[{
+	"_id": {
+		"$oid": "583c7491f0f7e113e4cf9df1"
+	},
+	"name": "coffee",
+	"price": "$1.99"
+},
+{
+	"_id": {
+		"$oid": "583c7491f0f7e113e4cf9df2"
+	},
+	"name": "espresso",
+	"price": "$1.00"
+},
+{
+	"_id": {
+		"$oid": "583c7491f0f7e113e4cf9df3"
+	},
+	"name": "latte",
+	"price": "$2.99"
+},
+{
+	"_id": {
+		"$oid": "583c7491f0f7e113e4cf9df4"
+	},
+	"name": "nutella latte",
+	"price": "$3.99"
+}]
