@@ -66,7 +66,7 @@ module.exports.coffeeGetOne = function(request, response) {
 	
 		collection
 			.findOne({
-				_id : ObjectId('coffeeId')
+				
 			}, function(error, docs) {
 				response
 					.status(200)
@@ -75,11 +75,24 @@ module.exports.coffeeGetOne = function(request, response) {
 };
 
 module.exports.coffeeAddOne = function(request, response) {
+	var db = dbconn.get();
+	var collection = db.collection('coffee');
+
 	console.log("POST new coffee");
-	console.log(request.body); //request.body to retreive Post fields
-	response //response chain status and data
-		.status(200)
-		.json(request.body);
+	
+	//if body exist and name key in body exist and star key in body exist
+	if (request.body && request.body.name && request.body.stars) {
+		console.log(request.body);
+			response
+				.status(200)
+				.json(request.body);
+	} else {
+		console.log("Data missing from body");
+		response
+			.status(400)
+			.json({ message : "Required data missing from body"});
+	}
+
 };
 
 
